@@ -8,17 +8,17 @@
   dependencies:
     "@curi/router" "^1.0.0-beta.36"
 
-"@curi/react@^1.0.0-beta.28":
-  version "1.0.0-beta.28"
-  resolved "https://registry.yarnpkg.com/@curi/react/-/react-1.0.0-beta.28.tgz#4f170cd59cb2e75310cd05271abd1886d9d49b6d"
+"@curi/react@^1.0.0-beta.29":
+  version "1.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/@curi/react/-/react-1.0.0-beta.29.tgz#a46e8645a572ed963e06a1c39a2c5ff2e0a26b75"
   dependencies:
-    "@curi/route-active" "^1.0.0-beta.6"
-    "@curi/route-prefetch" "^1.0.0-beta.10"
-    "@curi/router" "^1.0.0-beta.36"
+    "@curi/route-active" "^1.0.0--.beta.6"
+    "@curi/route-prefetch" "^1.0.0-beta.11"
+    "@curi/router" "^1.0.0-beta.37"
     "@hickory/root" "^1.0.0-beta.7"
     "@types/react" "^16.3.11"
 
-"@curi/route-active@^1.0.0-beta.6":
+"@curi/route-active@^1.0.0--.beta.6":
   version "1.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/@curi/route-active/-/route-active-1.0.0-beta.6.tgz#a36989510aa82b2d13b1bd871c875ef025f06a80"
   dependencies:
@@ -31,9 +31,23 @@
     "@curi/core" "^1.0.0-beta.34"
     "@hickory/root" "1.0.0-beta.8"
 
+"@curi/route-prefetch@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@curi/route-prefetch/-/route-prefetch-1.0.0-beta.11.tgz#fb5d2cf5bdd9215e25622af84847e5d983d69239"
+  dependencies:
+    "@curi/router" "^1.0.0-beta.37"
+    "@hickory/root" "1.0.0-beta.8"
+
 "@curi/router@^1.0.0-beta.36":
   version "1.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@curi/router/-/router-1.0.0-beta.36.tgz#5e90e98808bca3881ca96ea73894533c8c4e8afa"
+  dependencies:
+    "@hickory/root" "1.0.0-beta.8"
+    path-to-regexp "^2.1.0"
+
+"@curi/router@^1.0.0-beta.37":
+  version "1.0.0-beta.37"
+  resolved "https://registry.yarnpkg.com/@curi/router/-/router-1.0.0-beta.37.tgz#a4ab61beffcb3811c3cda535e05240ee157351ec"
   dependencies:
     "@hickory/root" "1.0.0-beta.8"
     path-to-regexp "^2.1.0"

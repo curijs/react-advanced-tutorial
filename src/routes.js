@@ -1,21 +1,19 @@
 import { BOOKS, BOOK } from "./api";
+import { once } from "@curi/router";
 
 export default [
   {
     name: "Home",
     path: "",
-    on: {
-      initial: () => Promise.all([
-        import("./components/Home")
-          .then(module => module.default),
-        BOOKS()
-      ])
+    match: {
+      body: () => import("./components/Home")
+        .then(module => module.default),
+      books: once(() => BOOKS())
     },
     response({ resolved }) {
-      const [body, books] = resolved.initial;
       return {
-        body,
-        data: { books }
+        body: resolved.body,
+        data: { books: resolved.books }
       };
     }
   },
@@ -25,41 +23,41 @@ export default [
     params: {
       id: id => parseInt(id, 10)
     },
-    on: {
-      initial: () => import("./components/Book")
+    match: {
+      body: () => import("./components/Book")
         .then(module => module.default),
-      every: ({ params }) => BOOK(params.id)
+      book: ({ params }) => BOOK(params.id)
     },
     response({ resolved }) {
       return {
-        body: resolved.initial,
-        data: { book: resolved.every }
+        body: resolved.body,
+        data: { book: resolved.book }
       };
     }
   },
   {
     name: "Checkout",
     path: "checkout",
-    on: {
-      initial: () => import("./components/Checkout")
-      .then(module => module.default)
+    match: {
+      body: () => import("./components/Checkout")
+        .then(module => module.default)
     },
     response({ resolved }) {
       return {
-        body: resolved.initial
+        body: resolved.body
       };
     }
   },
   {
     name: "Catch All",
     path: "(.*)",
-    on: {
-      initial: () => import("./components/NotFound")
-      .then(module => module.default)
+    match: {
+      body: () => import("./components/NotFound")
+        .then(module => module.default)
     },
     response({ resolved }) {
       return {
-        body: resolved.initial
+        body: resolved.body
       };
     }
   }
