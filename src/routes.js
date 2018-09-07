@@ -5,7 +5,7 @@ export default [
   {
     name: "Home",
     path: "",
-    match: {
+    resolve: {
       body: () => import("./components/Home")
         .then(module => module.default),
       books: once(() => BOOKS())
@@ -23,7 +23,7 @@ export default [
     params: {
       id: id => parseInt(id, 10)
     },
-    match: {
+    resolve: {
       body: () => import("./components/Book")
         .then(module => module.default),
       book: ({ params }) => BOOK(params.id)
@@ -38,7 +38,7 @@ export default [
   {
     name: "Checkout",
     path: "checkout",
-    match: {
+    resolve: {
       body: () => import("./components/Checkout")
         .then(module => module.default)
     },
@@ -51,7 +51,7 @@ export default [
   {
     name: "Catch All",
     path: "(.*)",
-    match: {
+    resolve: {
       body: () => import("./components/NotFound")
         .then(module => module.default)
     },

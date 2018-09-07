@@ -18,7 +18,7 @@ export default ({ response, router }) => {
         type="button"
         onClick={() => {
           cart.add(book, 1);
-          router.navigate({ to: "Checkout" });
+          router.navigate({ name: "Checkout" });
         }}
       >
         Add to Cart

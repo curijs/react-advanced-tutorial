@@ -1,13 +1,11 @@
 import React from 'react';
-import { Prefetch, Link } from '@curi/react';
+import { Link } from '@curi/react-dom';
 
 export default () => (
   <nav>
     <ul>
       <li>
-        <Prefetch match={{ name: "Home" }}>
-          {ref => <Link to="Home" ref={ref}>Home</Link>}
-        </Prefetch>
+        <Link to="Home">Home</Link>
       </li>
       <li>
         <Link to="Checkout">Checkout</Link>
