@@ -2,7 +2,7 @@ import React from 'react';
 
 import cart from '../cart';
 
-export default ({ response, router }) => {
+export default function Book({ response, router }) {
   const { book } = response.data;
 
   if (!book) {
@@ -25,4 +25,4 @@ export default ({ response, router }) => {
       </button>
     </div>
   );
-};
+}
