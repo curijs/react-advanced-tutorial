@@ -4,8 +4,8 @@ import { curi } from '@curi/router';
 import Browser from '@hickory/browser';
 import { curiProvider } from '@curi/react-dom';
 
-import './index.css';
 import routes from './routes';
+import './index.css';
 import NavMenu from './components/NavMenu';
 import registerServiceWorker from './registerServiceWorker';
 

@@ -1,7 +1,9 @@
-import { BOOKS, BOOK } from "./api";
-import { once } from "@curi/router";
+import { prepareRoutes } from "@curi/router";
+import { once } from "@curi/helpers";
 
-export default [
+import { BOOKS, BOOK } from "./api";
+
+export default prepareRoutes([
   {
     name: "Home",
     path: "",
@@ -61,4 +63,4 @@ export default [
       };
     }
   }
-];
+]);
