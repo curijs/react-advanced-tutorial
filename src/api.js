@@ -13,9 +13,10 @@ export const BOOK = id => new Promise(resolve => {
     resolve(BOOK_CACHE[id]);
     return;
   }
+  const intID = parseInt(id, 10);
   // artificial delay on first call
   setTimeout(() => {
-    const book = books.find(b => b.id === id);
+    const book = books.find(b => b.id === intID);
     BOOK_CACHE[id] = book;
     resolve(book);
   }, 2500);

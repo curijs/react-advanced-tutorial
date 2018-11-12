@@ -7,10 +7,15 @@ import { curiProvider } from '@curi/react-dom';
 import routes from './routes';
 import './index.css';
 import NavMenu from './components/NavMenu';
+import * as bookAPI from './api';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = Browser();
-const router = curi(history, routes);
+const router = curi(history, routes, {
+  external: {
+    bookAPI
+  }
+});
 const Router = curiProvider(router);
 
 router.once(() => {

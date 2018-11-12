@@ -1,7 +1,5 @@
 import { prepareRoutes } from "@curi/router";
-import { once } from "@curi/helpers";
-
-import { BOOKS, BOOK } from "./api";
+import { preferDefault } from "@curi/helpers";
 
 export default prepareRoutes([
   {
@@ -9,8 +7,8 @@ export default prepareRoutes([
     path: "",
     resolve: {
       body: () => import("./components/Home")
-        .then(module => module.default),
-      books: once(() => BOOKS())
+        .then(preferDefault),
+      books: (match, external) => external.bookAPI.BOOKS()
     },
     response({ resolved }) {
       return {
@@ -22,13 +20,10 @@ export default prepareRoutes([
   {
     name: "Book",
     path: "book/:id",
-    params: {
-      id: id => parseInt(id, 10)
-    },
     resolve: {
       body: () => import("./components/Book")
-        .then(module => module.default),
-      book: ({ params }) => BOOK(params.id)
+        .then(preferDefault),
+      book: ({ params }, external) => external.bookAPI.BOOK(params.id)
     },
     response({ resolved }) {
       return {
@@ -42,12 +37,10 @@ export default prepareRoutes([
     path: "checkout",
     resolve: {
       body: () => import("./components/Checkout")
-        .then(module => module.default)
+        .then(preferDefault)
     },
     response({ resolved }) {
-      return {
-        body: resolved.body
-      };
+      return { body: resolved.body };
     }
   },
   {
@@ -55,12 +48,10 @@ export default prepareRoutes([
     path: "(.*)",
     resolve: {
       body: () => import("./components/NotFound")
-        .then(module => module.default)
+        .then(preferDefault)
     },
     response({ resolved }) {
-      return {
-        body: resolved.body
-      };
+      return { body: resolved.body };
     }
   }
 ]);

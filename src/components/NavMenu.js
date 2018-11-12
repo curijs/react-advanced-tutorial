@@ -6,10 +6,10 @@ export default function NavMenu() {
     <nav>
       <ul>
         <li>
-          <Link to="Home">Home</Link>
+          <Link name="Home">Home</Link>
         </li>
         <li>
-          <Link to="Checkout">Checkout</Link>
+          <Link name="Checkout">Checkout</Link>
         </li>
       </ul>
     </nav>
