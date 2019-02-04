@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "@curi/helpers": "^1.0.0",
-    "@curi/react-dom": "^1.2.0",
-    "@curi/router": "^1.1.0",
+    "@curi/react-dom": "^2.0.0-alpha.0",
+    "@curi/router": "^2.0.0-alpha.0",
     "@hickory/browser": "^1.0.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-scripts": "^1.1.4",
     "react-spinkit": "^3.0.0"
   },

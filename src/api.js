@@ -1,11 +1,12 @@
+import { once } from "@curi/helpers";
 import books from "./books";
 
-export const BOOKS = () => new Promise(resolve => {
-  // artificial delay
+// artificial delay on initial load
+export const BOOKS = once(() => new Promise(resolve => {
   setTimeout(() => {
     resolve(books);
   }, 1000);
-});
+}));
 
 const BOOK_CACHE = {};
 export const BOOK = id => new Promise(resolve => {

@@ -5,53 +5,53 @@ export default prepareRoutes([
   {
     name: "Home",
     path: "",
-    resolve: {
-      body: () => import("./components/Home")
-        .then(preferDefault),
-      books: (match, external) => external.bookAPI.BOOKS()
+    resolve(_, external) {
+      const body = import("./components/Home").then(preferDefault);
+      const books = external.bookAPI.BOOKS();
+      return Promise.all([ body, books ]);
     },
     response({ resolved }) {
+      const [body, books] = resolved;
       return {
-        body: resolved.body,
-        data: { books: resolved.books }
+        body,
+        data: { books }
       };
     }
   },
   {
     name: "Book",
     path: "book/:id",
-    resolve: {
-      body: () => import("./components/Book")
-        .then(preferDefault),
-      book: ({ params }, external) => external.bookAPI.BOOK(params.id)
+    resolve({ params }, external) {
+      const body = import("./components/Book").then(preferDefault);
+      const book = external.bookAPI.BOOK(params.id);
+      return Promise.all([ body, book ]);
     },
     response({ resolved }) {
+      const [body, book] = resolved;
       return {
-        body: resolved.body,
-        data: { book: resolved.book }
+        body,
+        data: { book }
       };
     }
   },
   {
     name: "Checkout",
     path: "checkout",
-    resolve: {
-      body: () => import("./components/Checkout")
-        .then(preferDefault)
+    resolve() {
+      return import("./components/Checkout").then(preferDefault);
     },
     response({ resolved }) {
-      return { body: resolved.body };
+      return { body: resolved };
     }
   },
   {
     name: "Catch All",
     path: "(.*)",
-    resolve: {
-      body: () => import("./components/NotFound")
-        .then(preferDefault)
+    resolve() {
+      return import("./components/NotFound").then(preferDefault);
     },
     response({ resolved }) {
-      return { body: resolved.body };
+      return { body: resolved };
     }
   }
 ]);

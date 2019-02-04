@@ -6,7 +6,7 @@ import { curiProvider } from '@curi/react-dom';
 
 import routes from './routes';
 import './index.css';
-import NavMenu from './components/NavMenu';
+import App from './components/App';
 import * as bookAPI from './api';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -21,19 +21,7 @@ const Router = curiProvider(router);
 router.once(() => {
   ReactDOM.render((
     <Router>
-      {({ response, router }) => {
-        const { body:Body } = response;
-        return (
-          <div>
-            <header>
-              <NavMenu />
-            </header>
-            <main>
-              <Body response={response} router={router} />
-            </main>
-          </div>
-        );
-      }}
+      <App />
     </Router>
   ), document.getElementById('root'));
 });
