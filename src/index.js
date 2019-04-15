@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { curi } from '@curi/router';
-import Browser from '@hickory/browser';
-import { curiProvider } from '@curi/react-dom';
+import { createRouter } from '@curi/router';
+import { browser } from '@hickory/browser';
+import { createRouterComponent } from '@curi/react-dom';
 
 import routes from './routes';
 import './index.css';
@@ -10,13 +10,12 @@ import App from './components/App';
 import * as bookAPI from './api';
 import registerServiceWorker from './registerServiceWorker';
 
-const history = Browser();
-const router = curi(history, routes, {
+const router = createRouter(browser, routes, {
   external: {
     bookAPI
   }
 });
-const Router = curiProvider(router);
+const Router = createRouterComponent(router);
 
 router.once(() => {
   ReactDOM.render((

@@ -3,7 +3,7 @@ import React from 'react';
 import cart from '../cart';
 
 export default function Checkout({ router, response }) {
-  const books = cart.items();  
+  const books = cart.items();
   if (!books.length) {
     return response.location.hash === 'thanks'
       ? <div>Thanks for your purchase!</div>
@@ -35,7 +35,7 @@ export default function Checkout({ router, response }) {
           router.navigate({
             name: "Checkout",
             hash: "thanks",
-            method: "REPLACE"
+            method: "replace"
           });
         }}
       >

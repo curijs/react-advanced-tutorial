@@ -1,10 +1,10 @@
 import React from "react";
-import { useCuri } from "@curi/react-dom";
+import { useResponse } from "@curi/react-dom";
 
 import NavMenu from './NavMenu';
 
 export default function App() {
-  const { response, router } = useCuri();
+  const { response, router } = useResponse();
 
   const { body:Body } = response;
   return (
