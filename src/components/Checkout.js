@@ -1,8 +1,10 @@
 import React from 'react';
+import { useRouter } from '@curi/react-dom';
 
 import cart from '../cart';
 
-export default function Checkout({ router, response }) {
+export default function Checkout({ response }) {
+  const router = useRouter();
   const books = cart.items();
   if (!books.length) {
     return response.location.hash === 'thanks'

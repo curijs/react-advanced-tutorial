@@ -4,7 +4,7 @@ import { useResponse } from "@curi/react-dom";
 import NavMenu from './NavMenu';
 
 export default function App() {
-  const { response, router } = useResponse();
+  const { response } = useResponse();
 
   const { body:Body } = response;
   return (
@@ -13,7 +13,7 @@ export default function App() {
         <NavMenu />
       </header>
       <main>
-        <Body response={response} router={router} />
+        <Body response={response} />
       </main>
     </div>
   );

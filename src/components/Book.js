@@ -1,10 +1,11 @@
 import React from 'react';
+import { useRouter } from '@curi/react-dom';
 
 import cart from '../cart';
 
-export default function Book({ response, router }) {
+export default function Book({ response }) {
+  const router = useRouter();
   const { book } = response.data;
-
   if (!book) {
     return <div>The requested book could not be found</div>;
   }
