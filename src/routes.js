@@ -11,7 +11,7 @@ export default prepareRoutes({
         const books = external.bookAPI.BOOKS();
         return Promise.all([ body, books ]);
       },
-      response({ resolved }) {
+      respond({ resolved }) {
         const [body, books] = resolved;
         return {
           body,
@@ -27,7 +27,7 @@ export default prepareRoutes({
         const book = external.bookAPI.BOOK(params.id);
         return Promise.all([ body, book ]);
       },
-      response({ resolved }) {
+      respond({ resolved }) {
         const [body, book] = resolved;
         return {
           body,
@@ -41,7 +41,7 @@ export default prepareRoutes({
       resolve() {
         return import("./components/Checkout").then(preferDefault);
       },
-      response({ resolved }) {
+      respond({ resolved }) {
         return { body: resolved };
       }
     },
@@ -51,7 +51,7 @@ export default prepareRoutes({
       resolve() {
         return import("./components/NotFound").then(preferDefault);
       },
-      response({ resolved }) {
+      respond({ resolved }) {
         return { body: resolved };
       }
     }
