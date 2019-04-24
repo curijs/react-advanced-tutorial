@@ -34,11 +34,11 @@ export default function Checkout({ response }) {
         type="button"
         onClick={() => {
           cart.reset();
-          router.navigate({
+          const url = router.url({
             name: "Checkout",
-            hash: "thanks",
-            method: "replace"
+            hash: "thanks"
           });
+          router.navigate({ url, method: "replace" });
         }}
       >
         Buy
