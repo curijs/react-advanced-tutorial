@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@curi/helpers": "^2.0.0-beta.4",
-    "@curi/react-dom": "^2.0.0-beta.15",
-    "@curi/router": "^2.0.0-beta.19",
+    "@curi/react-dom": "^2.0.0-beta.16",
+    "@curi/router": "^2.0.0-beta.20",
     "@hickory/browser": "^2.0.0-beta.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
